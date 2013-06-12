@@ -221,7 +221,12 @@ module Capybara::Poltergeist
       message = { 'name' => name, 'args' => args }
       log message.inspect
 
+      log "Started command: #{name} with args #{args.inspect}"
+
       json = JSON.load(server.send(JSON.dump(message)))
+
+      log "End command: #{name} with args #{args.inspect}"
+
       log json.inspect
 
       if json['error']

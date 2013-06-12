@@ -18,7 +18,6 @@ module Capybara::Poltergeist
 
     def command(name, *args)
       browser.send(name, page_id, id, *args)
-      Rails.logger.debug "sending: #{name}, args.inspect"
     rescue BrowserError => error
       case error.name
       when 'Poltergeist.ObsoleteNode'
